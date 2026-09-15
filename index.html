@@ -1,521 +1,1003 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piyush Kumar Srivastava — Mechanical Engineer / ML</title>
-<meta name="description" content="Piyush Kumar Srivastava — Mechanical Engineering + Machine Learning. Predictive maintenance, AI tools, and applied ML projects.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#0E2A3F;
-    --navy-2:#123852;
-    --cyan:#5FA8C4;
-    --cyan-dim:#3B6E8F;
-    --paper:#F5F3ED;
-    --paper-2:#EAE7DD;
-    --ink:#16242E;
-    --steel:#7C8A93;
-    --orange:#E8590C;
-    --orange-dim:#c94c09;
-    --line: rgba(95,168,196,0.35);
-    --radius:2px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    line-height:1.6;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-    html{scroll-behavior:auto;}
-  }
-  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  a{color:inherit;}
-  img{max-width:100%;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  ::selection{background:var(--orange); color:#fff;}
+    <title>Piyush Kumar Srivastava | AI/ML Engineer</title>
 
-  /* focus visibility */
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--orange);
-    outline-offset:3px;
-  }
+    <meta name="description"
+          content="Piyush Kumar Srivastava — AI/ML Engineer, Python Developer and Backend Developer.">
 
-  /* ---------- grid paper backdrop ---------- */
-  .blueprint{
-    background-color:var(--navy);
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:32px 32px;
-    color:#EAF2F6;
-    position:relative;
-  }
-  .blueprint::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(95,168,196,0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(95,168,196,0.12) 1px, transparent 1px);
-    background-size:160px 160px;
-    pointer-events:none;
-  }
+    <meta name="author" content="Piyush Kumar Srivastava">
 
-  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  /* ---------- nav ---------- */
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(14,42,63,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px;
-  }
-  .nav .logo{
-    font-weight:700; font-size:1.05rem; letter-spacing:0.02em; color:#fff;
-  }
-  .nav .logo span{color:var(--orange);}
-  .nav ul{
-    list-style:none; display:flex; gap:28px; margin:0; padding:0;
-  }
-  .nav a.link{
-    color:#C9DCE6; text-decoration:none; font-size:0.85rem;
-    font-family:'JetBrains Mono',monospace; letter-spacing:0.03em;
-    padding:4px 2px; border-bottom:1px solid transparent;
-    transition:border-color .2s, color .2s;
-  }
-  .nav a.link:hover{color:#fff; border-color:var(--orange);}
-  .nav .resume-btn{
-    display:inline-block; background:var(--orange); color:#fff;
-    font-family:'JetBrains Mono',monospace; font-size:0.78rem;
-    padding:8px 14px; text-decoration:none; border-radius:var(--radius);
-    letter-spacing:0.03em; white-space:nowrap;
-    transition:background .2s;
-  }
-  .nav .resume-btn:hover{background:var(--orange-dim);}
-  .nav-toggle{display:none;}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
-  @media (max-width:760px){
-    .nav ul.links{display:none;}
-    .nav-toggle{
-      display:block; background:none; border:1px solid var(--line);
-      color:#fff; font-family:'JetBrains Mono',monospace; font-size:0.75rem;
-      padding:6px 10px; border-radius:var(--radius);
-    }
-    .nav .wrap{flex-wrap:wrap; gap:12px;}
-  }
-
-  /* ---------- dimension-line section labels ---------- */
-  .drawing-label{
-    display:flex; align-items:center; gap:10px;
-    margin:0 0 40px 0;
-  }
-  .drawing-label .tick{
-    width:14px; height:14px; border-left:2px solid var(--cyan);
-    border-bottom:2px solid var(--cyan);
-  }
-  .drawing-label .txt{
-    font-family:'JetBrains Mono',monospace; font-size:0.78rem;
-    letter-spacing:0.12em; text-transform:uppercase; color:var(--cyan-dim);
-  }
-  .drawing-label .rule{
-    flex:1; height:1px; background:var(--line);
-  }
-  section .drawing-label .txt{color:var(--steel);}
-  section .drawing-label .tick{border-color:var(--orange);}
-
-  /* ---------- hero / title block ---------- */
-  .hero{padding:64px 0 88px;}
-  .hero .wrap{display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:end;}
-  @media (max-width:820px){ .hero .wrap{grid-template-columns:1fr;} }
-
-  .hero .eyebrow{
-    font-family:'JetBrains Mono',monospace; color:var(--orange);
-    font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase;
-    margin-bottom:18px; display:flex; align-items:center; gap:10px;
-  }
-  .hero .eyebrow::before{content:"◆"; font-size:0.6rem;}
-  .hero h1{
-    font-size:clamp(2.2rem, 5.2vw, 3.6rem); line-height:1.08; margin:0 0 20px;
-    color:#fff; font-weight:700;
-  }
-  .hero h1 em{font-style:normal; color:var(--cyan);}
-  .hero p.lede{
-    color:#B9CCD6; font-size:1.05rem; max-width:46ch; margin:0 0 32px;
-  }
-  .hero .ctas{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    font-family:'JetBrains Mono',monospace; font-size:0.82rem;
-    padding:13px 22px; text-decoration:none; letter-spacing:0.03em;
-    border-radius:var(--radius); display:inline-flex; align-items:center; gap:8px;
-    transition:transform .15s ease, background .2s, border-color .2s;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--orange); color:#fff;}
-  .btn-primary:hover{background:var(--orange-dim);}
-  .btn-ghost{border:1px solid var(--line); color:#EAF2F6;}
-  .btn-ghost:hover{border-color:var(--cyan);}
-
-  /* title block card */
-  .titleblock{
-    background:rgba(245,243,237,0.04);
-    border:1px solid var(--line);
-    padding:0;
-  }
-  .titleblock .row{
-    display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--line);
-  }
-  .titleblock .row:last-child{border-bottom:none;}
-  .titleblock .cell{
-    padding:12px 16px; border-left:1px solid var(--line);
-  }
-  .titleblock .cell:first-child{border-left:none;}
-  .titleblock .cell .k{
-    font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.1em;
-    text-transform:uppercase; color:var(--cyan-dim); display:block; margin-bottom:4px;
-  }
-  .titleblock .cell .v{
-    font-family:'JetBrains Mono',monospace; font-size:0.85rem; color:#EAF2F6;
-  }
-  .titleblock .title-row{padding:16px; border-bottom:1px solid var(--line);}
-  .titleblock .title-row .k{font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cyan-dim); font-family:'JetBrains Mono',monospace;}
-  .titleblock .title-row .v{font-family:'Space Grotesk',sans-serif; font-size:1.15rem; color:#fff; margin-top:4px;}
-
-  /* ---------- sections general ---------- */
-  section{padding:80px 0;}
-  section.alt{background:var(--paper-2);}
-  h2.section-title{
-    font-size:clamp(1.6rem,3vw,2.1rem); margin:0 0 8px; color:var(--ink);
-  }
-  p.section-sub{color:var(--steel); max-width:60ch; margin:0 0 44px;}
-
-  /* ---------- about ---------- */
-  .about-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px;}
-  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
-  .about-grid p{color:#33454F; max-width:58ch;}
-  .stat-strip{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
-  .stat{background:var(--paper); padding:20px;}
-  .stat .num{font-family:'Space Grotesk',sans-serif; font-size:1.9rem; font-weight:700; color:var(--navy);}
-  .stat .lbl{font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--steel); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px;}
-
-  /* ---------- skills spec sheet ---------- */
-  .spec-sheet{border:1px solid var(--cyan-dim); background:var(--navy); color:#EAF2F6;}
-  .spec-row{
-    display:grid; grid-template-columns:200px 1fr;
-    border-bottom:1px solid var(--line);
-  }
-  .spec-row:last-child{border-bottom:none;}
-  .spec-row .label{
-    font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--orange);
-    padding:18px 20px; border-right:1px solid var(--line); letter-spacing:0.04em;
-    text-transform:uppercase;
-  }
-  .spec-row .items{
-    padding:18px 20px; display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center;
-  }
-  .chip{
-    font-family:'JetBrains Mono',monospace; font-size:0.78rem;
-    border:1px solid var(--line); padding:5px 10px; border-radius:var(--radius);
-    color:#DCEAF0;
-  }
-  @media (max-width:640px){
-    .spec-row{grid-template-columns:1fr;}
-    .spec-row .label{border-right:none; border-bottom:1px solid var(--line);}
-  }
-
-  /* ---------- projects as drawing sheets ---------- */
-  .sheets{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;}
-  .sheet{
-    background:var(--paper); border:1px solid #C9C4B4; position:relative;
-    display:flex; flex-direction:column; transition:border-color .2s, transform .2s;
-  }
-  .sheet:hover{border-color:var(--orange); transform:translateY(-3px);}
-  .sheet .sheet-head{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:12px 16px; border-bottom:1px solid #C9C4B4;
-    font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:0.08em;
-    color:var(--steel); text-transform:uppercase;
-  }
-  .sheet .sheet-head .no{color:var(--orange);}
-  .sheet .sheet-body{padding:20px 16px; flex:1; display:flex; flex-direction:column;}
-  .sheet h3{margin:0 0 6px; font-size:1.15rem; color:var(--ink);}
-  .sheet .role{font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--cyan-dim); margin-bottom:12px;}
-  .sheet ul{margin:0 0 16px; padding-left:18px; color:#33454F; font-size:0.92rem;}
-  .sheet ul li{margin-bottom:6px;}
-  .sheet .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:10px;}
-  .sheet .tags span{
-    font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-    background:var(--paper-2); border:1px solid #C9C4B4; padding:3px 8px; color:var(--steel);
-  }
-  .sheet .sheet-link{
-    display:inline-block; margin-top:14px; font-family:'JetBrains Mono',monospace;
-    font-size:0.78rem; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--orange);
-  }
-
-  /* ---------- experience timeline ---------- */
-  .timeline{border-left:2px solid var(--cyan-dim); padding-left:28px; display:flex; flex-direction:column; gap:36px;}
-  .tl-item{position:relative;}
-  .tl-item::before{
-    content:""; position:absolute; left:-34px; top:4px;
-    width:11px; height:11px; background:var(--orange); border-radius:50%;
-    border:2px solid var(--paper);
-    box-shadow:0 0 0 2px var(--cyan-dim);
-  }
-  .tl-item .when{font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--cyan-dim); letter-spacing:0.05em; text-transform:uppercase;}
-  .tl-item h3{margin:4px 0 6px; font-size:1.1rem;}
-  .tl-item p{color:#33454F; margin:0; max-width:60ch;}
-
-  /* ---------- contact ---------- */
-  .contact-block{
-    display:grid; grid-template-columns:1fr 1fr; gap:1px;
-    background:var(--line); border:1px solid var(--line); max-width:640px;
-  }
-  .contact-card{background:var(--navy); color:#EAF2F6; padding:24px;}
-  .contact-card .k{font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--cyan-dim); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; display:block;}
-  .contact-card a{text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:1.05rem; color:#fff; border-bottom:1px solid transparent;}
-  .contact-card a:hover{border-color:var(--orange);}
-
-  footer{
-    background:var(--navy); color:#9FB4BF; padding:36px 0;
-    font-family:'JetBrains Mono',monospace; font-size:0.75rem;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-  }
-  footer a{color:#C9DCE6; text-decoration:none; border-bottom:1px solid transparent;}
-  footer a:hover{border-color:var(--orange);}
-
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="nav blueprint">
-  <div class="wrap">
-    <div class="logo">PIYUSH<span>.</span></div>
-    <ul class="links">
-      <li><a class="link" href="#about">01 · About</a></li>
-      <li><a class="link" href="#skills">02 · Skills</a></li>
-      <li><a class="link" href="#projects">03 · Projects</a></li>
-      <li><a class="link" href="#experience">04 · Experience</a></li>
-      <li><a class="link" href="#contact">05 · Contact</a></li>
-    </ul>
-    <a class="resume-btn" href="resume.pdf" download>↓ Resume (PDF)</a>
-  </div>
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+
+    <div class="nav-container">
+
+        <a href="#" class="logo">
+            <span class="logo-box">P</span>
+            Piyush.
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <a
+            href="mailto:piyushsrivastava914@gmail.com"
+            class="nav-button">
+            Let's Talk
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-background"></div>
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85">
+
+        <source
+            src="https://cdn.coverr.co/videos/coverr-a-computer-screen-with-code-1576/1080p.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <div class="hero-container">
+
+        <div class="hero-grid">
+
+            <!-- LEFT -->
+            <div class="hero-text">
+
+                <div class="availability">
+                    <span class="status-dot"></span>
+                    OPEN TO AI / SOFTWARE / BACKEND OPPORTUNITIES
+                </div>
+
+                <h1>
+                    Building
+                    <span class="gradient-text">intelligent</span>
+                    systems.
+                </h1>
+
+                <p class="hero-description">
+
+                    I'm <strong>Piyush Kumar Srivastava</strong> —
+                    <span id="typed"></span>
+
+                    focused on building AI-powered products,
+                    backend systems and practical machine-learning solutions.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="button primary-button">
+                        View My Work →
+                    </a>
+
+                    <a
+                        href="resume.pdf"
+                        target="_blank"
+                        class="button secondary-button">
+
+                        Download Resume ↓
+
+                    </a>
+
+                </div>
+
+                <div class="social-row">
+
+                    <a href="https://github.com/Piyushsrivastava914"
+                       target="_blank">
+                        GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/piyush-kumar-srivastava-75446a38b"
+                       target="_blank">
+                        LinkedIn
+                    </a>
+
+                    <a href="mailto:piyushsrivastava914@gmail.com">
+                        Email
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TERMINAL -->
+            <div class="terminal">
+
+                <div class="terminal-header">
+
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span>piyush@portfolio ~ $</span>
+
+                </div>
+
+                <div class="terminal-body">
+
+                    <p>
+                        <span class="gray">$</span>
+                        <span class="cyan">python</span>
+                        build_future.py
+                    </p>
+
+                    <p>
+                        <span class="purple">developer</span> =
+                        <span class="green">"AI + Backend"</span>
+                    </p>
+
+                    <p>
+                        <span class="purple">skills</span> = [
+                    </p>
+
+                    <p class="indent">
+                        <span class="green">"Python"</span>,
+                        <span class="green">"Machine Learning"</span>
+                    </p>
+
+                    <p class="indent">
+                        <span class="green">"FastAPI"</span>,
+                        <span class="green">"SQL"</span>
+                    </p>
+
+                    <p class="indent">
+                        <span class="green">"GenAI"</span>
+                    </p>
+
+                    <p>]</p>
+
+                    <p>
+                        <span class="purple">projects</span> =
+                        <span class="orange">"4+"</span>
+                    </p>
+
+                    <p>
+                        <span class="purple">leetcode</span> =
+                        <span class="orange">"200+"</span>
+                    </p>
+
+                    <p>
+                        <span class="green">✓ systems deployed</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
 
-<section class="hero blueprint">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Gorakhpur, India · Open to Data Science / ML roles</div>
-      <h1>Mechanical engineer<br>building <em>applied ML</em><br>systems.</h1>
-      <p class="lede">Final-year B.Tech (Mechanical) turning manufacturing and process data into working models — fault classification, predictive maintenance, and AI-driven tools, shipped end to end.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="resume.pdf" download>↓ Download Resume</a>
-        <a class="btn btn-ghost" href="#projects">View Projects →</a>
-      </div>
+
+<!-- TECHNOLOGY MARQUEE -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>PYTHON</span>
+        <b>•</b>
+
+        <span>MACHINE LEARNING</span>
+        <b>•</b>
+
+        <span>GENAI</span>
+        <b>•</b>
+
+        <span>FASTAPI</span>
+        <b>•</b>
+
+        <span>BACKEND DEVELOPMENT</span>
+        <b>•</b>
+
+        <span>SQL</span>
+        <b>•</b>
+
+        <span>DATA ANALYTICS</span>
+        <b>•</b>
+
+        <span>AWS</span>
+        <b>•</b>
+
+        <span>PYTHON</span>
+        <b>•</b>
+
+        <span>MACHINE LEARNING</span>
+        <b>•</b>
+
+        <span>GENAI</span>
+        <b>•</b>
+
+        <span>FASTAPI</span>
+
     </div>
-    <div class="titleblock">
-      <div class="title-row">
-        <span class="k">Drawing Title</span>
-        <div class="v">Piyush Kumar Srivastava</div>
-      </div>
-      <div class="row">
-        <div class="cell"><span class="k">Discipline</span><span class="v">Mech. Eng. + ML</span></div>
-        <div class="cell"><span class="k">Institution</span><span class="v">MMMUT, Gorakhpur</span></div>
-      </div>
-      <div class="row">
-        <div class="cell"><span class="k">Batch</span><span class="v">2023 – 2027</span></div>
-        <div class="cell"><span class="k">CGPA</span><span class="v">7.38 / 10</span></div>
-      </div>
-      <div class="row">
-        <div class="cell"><span class="k">Status</span><span class="v">Final Year</span></div>
-        <div class="cell"><span class="k">Rev.</span><span class="v">2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+
+</div>
+
+
+<!-- ABOUT -->
 
 <section id="about">
-  <div class="wrap">
-    <div class="drawing-label"><span class="tick"></span><span class="txt">01 / About</span><span class="rule"></span></div>
-    <div class="about-grid">
-      <div>
-        <h2 class="section-title">Engineering fundamentals, ML execution.</h2>
-        <p>I'm a Mechanical Engineering undergraduate who spends as much time in Scikit-learn as in SolidWorks. My work sits at the intersection of the two — reading vibration signals and process data the way a mechanical engineer would, then building the classification and prediction pipelines to act on them.</p>
-        <p>I've interned on an active robotic Wire Arc Additive Manufacturing (WAAM) setup at IIT (BHU) Varanasi and reviewed production and quality-control workflows at BHEL. Outside of coursework, I lead a 5-person team building a predictive maintenance system, and ship independent projects end to end — from data to a deployed interface.</p>
-      </div>
-      <div class="stat-strip">
-        <div class="stat"><div class="num">3</div><div class="lbl">End-to-end ML projects</div></div>
-        <div class="stat"><div class="num">2</div><div class="lbl">Manufacturing internships</div></div>
-        <div class="stat"><div class="num">92%</div><div class="lbl">Fault-classification accuracy</div></div>
-        <div class="stat"><div class="num">5</div><div class="lbl">Team led, final year project</div></div>
-      </div>
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <span class="section-number">01 / ABOUT</span>
+
+            <h2>
+                Engineer.
+                <span>Builder.</span>
+                Problem Solver.
+            </h2>
+
+            <p>
+                I enjoy turning ideas into working products —
+                from machine-learning models and AI agents to
+                APIs, analytics dashboards and intelligent applications.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-card reveal">
+
+                <p>
+                    I'm a technology-focused engineer specialising in
+                    <strong>Python, AI/ML and backend development.</strong>
+                    My work combines software engineering with practical
+                    machine-learning applications.
+                </p>
+
+                <p>
+                    I have experience across product development,
+                    backend engineering, business growth and applied AI —
+                    giving me a balance between
+                    <strong>technical execution and product thinking.</strong>
+                </p>
+
+                <p>
+                    Currently working at
+                    <strong>Codementees</strong>
+                    while continuously building AI-driven products.
+                </p>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat reveal">
+                    <strong>200+</strong>
+                    <span>LeetCode Problems</span>
+                </div>
+
+                <div class="stat reveal">
+                    <strong>4+</strong>
+                    <span>Major Projects</span>
+                </div>
+
+                <div class="stat reveal">
+                    <strong>3+</strong>
+                    <span>Core Domains</span>
+                </div>
+
+                <div class="stat reveal">
+                    <strong>∞</strong>
+                    <span>Learning Mindset</span>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
+
 </section>
 
-<section id="skills" class="alt">
-  <div class="wrap">
-    <div class="drawing-label"><span class="tick"></span><span class="txt">02 / Skills</span><span class="rule"></span></div>
-    <h2 class="section-title">Spec sheet.</h2>
-    <p class="section-sub">The toolkit, read like a parts list.</p>
-    <div class="spec-sheet">
-      <div class="spec-row">
-        <div class="label">Languages</div>
-        <div class="items"><span class="chip">Python</span><span class="chip">SQL (MySQL)</span><span class="chip">R</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="label">Machine Learning</div>
-        <div class="items"><span class="chip">Scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">SVM</span><span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">Predictive Modeling</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="label">Data &amp; Analysis</div>
-        <div class="items"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Feature Engineering</span><span class="chip">Statistical Analysis</span><span class="chip">Window Functions</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="label">Tools &amp; APIs</div>
-        <div class="items"><span class="chip">Streamlit</span><span class="chip">Git / GitHub</span><span class="chip">REST APIs</span><span class="chip">Jupyter</span><span class="chip">MS Excel</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="label">Engineering</div>
-        <div class="items"><span class="chip">SolidWorks</span><span class="chip">ANSYS Fluent</span><span class="chip">MATLAB</span></div>
-      </div>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <span class="section-number">02 / EXPERIENCE</span>
+
+            <h2>Where I've built things.</h2>
+
+            <p>
+                A combination of software development,
+                applied AI, engineering and business experience.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+
+                <div class="experience-card">
+
+                    <div class="experience-top">
+
+                        <div>
+
+                            <h3>Backend Developer</h3>
+
+                            <span>
+                                Codementees
+                            </span>
+
+                        </div>
+
+                        <time>CURRENT</time>
+
+                    </div>
+
+                    <p>
+                        Working on backend systems, technical initiatives,
+                        platform development and product-focused engineering.
+                    </p>
+
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Backend</span>
+                        <span>APIs</span>
+                        <span>Product</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+
+                <div class="experience-card">
+
+                    <div class="experience-top">
+
+                        <div>
+
+                            <h3>
+                                International Business Development Associate
+                            </h3>
+
+                            <span>
+                                Codementees
+                            </span>
+
+                        </div>
+
+                        <time>CURRENT</time>
+
+                    </div>
+
+                    <p>
+                        Working across international business development,
+                        communication, growth initiatives and
+                        technology-driven opportunities.
+                    </p>
+
+                    <div class="tags">
+                        <span>B2B</span>
+                        <span>Business Growth</span>
+                        <span>Communication</span>
+                        <span>Technology</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+
+                <div class="experience-card">
+
+                    <div class="experience-top">
+
+                        <div>
+
+                            <h3>Research / Robotics Intern</h3>
+
+                            <span>
+                                IIT (BHU)
+                            </span>
+
+                        </div>
+
+                        <time>2026</time>
+
+                    </div>
+
+                    <p>
+                        Worked on robotic programming and WAAM CMT,
+                        exploring robotics-oriented manufacturing
+                        systems and automation.
+                    </p>
+
+                    <div class="tags">
+                        <span>Robotics</span>
+                        <span>WAAM</span>
+                        <span>Programming</span>
+                        <span>Automation</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="experience-card">
+
+                    <div class="experience-top">
+
+                        <div>
+
+                            <h3>Industrial Training</h3>
+
+                            <span>
+                                BHEL Varanasi
+                            </span>
+
+                        </div>
+
+                        <time>2026</time>
+
+                    </div>
+
+                    <p>
+                        Industrial exposure to manufacturing processes,
+                        machining and engineering practices.
+                    </p>
+
+                    <div class="tags">
+                        <span>Manufacturing</span>
+                        <span>Machining</span>
+                        <span>Industrial Engineering</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
+
 </section>
+
+
+<!-- PROJECTS -->
 
 <section id="projects">
-  <div class="wrap">
-    <div class="drawing-label"><span class="tick"></span><span class="txt">03 / Projects</span><span class="rule"></span></div>
-    <h2 class="section-title">Featured work.</h2>
-    <p class="section-sub">Three sheets, three problems: signal classification, product development, and automated decision-making.</p>
-    <div class="sheets">
 
-      <div class="sheet">
-        <div class="sheet-head"><span>Final Year Project</span><span class="no">SHT 01/03</span></div>
-        <div class="sheet-body">
-          <h3>Predictive Maintenance System</h3>
-          <div class="role">Group Leader, Team of 5 · 2026</div>
-          <ul>
-            <li>End-to-end fault-classification pipeline for rotating-machinery vibration data — signal preprocessing and statistical feature extraction on the CWRU bearing dataset.</li>
-            <li>SVM classifier tuned to 92% accuracy across multiple bearing fault states, benchmarked against baseline models.</li>
-            <li>Deployed as a Streamlit dashboard with waveform upload, FFT spectrum analysis, and real-time prediction.</li>
-          </ul>
-          <div class="tags"><span>Python</span><span>Scikit-learn</span><span>SciPy</span><span>Streamlit</span></div>
-          <a class="sheet-link" href="https://github.com/Piyushsrivastava914/Predictive-Maintenance-System" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </div>
+    <div class="container">
 
-      <div class="sheet">
-        <div class="sheet-head"><span>Independent Project</span><span class="no">SHT 02/03</span></div>
-        <div class="sheet-body">
-          <h3>AI Mock Interview Platform</h3>
-          <div class="role">Full product lifecycle owner · 2026</div>
-          <ul>
-            <li>Parses a candidate's resume and uses the OpenAI GPT-4 API to generate dynamic, role-specific technical questions across DSA, OOP, and system design.</li>
-            <li>Session persistence, solution validation, and a performance-analytics dashboard.</li>
-            <li>Owned ideation, API design, and deployment end to end.</li>
-          </ul>
-          <div class="tags"><span>Python</span><span>Streamlit</span><span>OpenAI API</span></div>
-          <a class="sheet-link" href="https://github.com/Piyushsrivastava914" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </div>
+        <div class="section-header reveal">
 
-      <div class="sheet">
-        <div class="sheet-head"><span>Independent Project</span><span class="no">SHT 03/03</span></div>
-        <div class="sheet-body">
-          <h3>Automated Crypto Trading Bot</h3>
-          <div class="role">Binance Testnet · 2025</div>
-          <ul>
-            <li>Combines multiple technical indicators to generate buy/sell signals and executes trades via the python-binance REST API.</li>
-            <li>Risk-management controls — position sizing, stop-loss logic.</li>
-            <li>Structured logging of signals, orders, and account state for strategy debugging.</li>
-          </ul>
-          <div class="tags"><span>Python</span><span>python-binance</span><span>REST API</span></div>
-          <a class="sheet-link" href="https://github.com/Piyushsrivastava914" target="_blank" rel="noopener">View on GitHub →</a>
+            <span class="section-number">03 / PROJECTS</span>
+
+            <h2>Things I've built.</h2>
+
+            <p>
+                AI, machine-learning and software projects
+                designed around real-world problems.
+            </p>
+
         </div>
-      </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- RazorShield -->
+
+            <article class="project-card reveal">
+
+                <div class="project-visual">
+
+                    <div class="project-glow"></div>
+
+                    <div class="dashboard-window">
+
+                        <div class="window-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="chart chart-one"></div>
+                        <div class="chart chart-two"></div>
+                        <div class="chart chart-three"></div>
+
+                    </div>
+
+                </div>
+
+                <span class="project-category">
+                    AI / FRAUD DETECTION
+                </span>
+
+                <h3>RazorShield AI</h3>
+
+                <p>
+                    Intelligent payment risk and fraud detection
+                    agent designed to identify suspicious transactions
+                    and support smarter payment decisions.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>AI</span>
+                    <span>ML</span>
+                    <span>Fraud Detection</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://razorshield-ai.streamlit.app/"
+                        target="_blank">
+                        Live Demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PrepPilot -->
+
+            <article class="project-card reveal">
+
+                <div class="project-visual">
+
+                    <div class="project-glow purple-glow"></div>
+
+                    <div class="dashboard-window">
+
+                        <div class="window-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="chart chart-one"></div>
+                        <div class="chart chart-two"></div>
+                        <div class="chart chart-three"></div>
+
+                    </div>
+
+                </div>
+
+                <span class="project-category">
+                    GENAI / FASTAPI
+                </span>
+
+                <h3>PrepPilot AI</h3>
+
+                <p>
+                    AI-powered interview platform for resume parsing,
+                    question generation, answer evaluation and
+                    intelligent interview reporting.
+                </p>
+
+                <div class="tags">
+                    <span>FastAPI</span>
+                    <span>Gemini</span>
+                    <span>Streamlit</span>
+                    <span>SQLAlchemy</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://aiinterview-yuukwvlpvddapvz4xofjrl.streamlit.app/"
+                        target="_blank">
+                        App ↗
+                    </a>
+
+                    <a
+                        href="https://ai-interview-platform-s4j9.onrender.com/"
+                        target="_blank">
+                        API ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- Predictive Maintenance -->
+
+            <article class="project-card reveal">
+
+                <div class="project-visual">
+
+                    <div class="project-glow green-glow"></div>
+
+                    <div class="dashboard-window">
+
+                        <div class="window-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="signal"></div>
+
+                    </div>
+
+                </div>
+
+                <span class="project-category">
+                    MACHINE LEARNING
+                </span>
+
+                <h3>
+                    Predictive Maintenance System
+                </h3>
+
+                <p>
+                    Vibration-based predictive maintenance system
+                    using signal processing, FFT, feature extraction
+                    and machine learning.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Random Forest</span>
+                    <span>FFT</span>
+                    <span>Streamlit</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://predictive-maintenance-system-piyush.streamlit.app/"
+                        target="_blank">
+                        Live Demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- E-Commerce -->
+
+            <article class="project-card reveal">
+
+                <div class="project-visual">
+
+                    <div class="project-glow orange-glow"></div>
+
+                    <div class="dashboard-window">
+
+                        <div class="window-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="bars">
+
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <span class="project-category">
+                    DATA ANALYTICS
+                </span>
+
+                <h3>
+                    E-Commerce Customer Analytics
+                </h3>
+
+                <p>
+                    Customer and sales analytics exploring RFM
+                    segmentation, margins, acquisition channels,
+                    returns and lifetime value.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Analytics</span>
+                    <span>RFM</span>
+                    <span>Visualization</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://e-commerce-customer-and-sales-analy-neon.vercel.app/"
+                        target="_blank">
+                        Live Demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </div>
-  </div>
+
 </section>
 
-<section id="experience" class="alt">
-  <div class="wrap">
-    <div class="drawing-label"><span class="tick"></span><span class="txt">04 / Experience</span><span class="rule"></span></div>
-    <h2 class="section-title">Where the data came from.</h2>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="when">Jun 2026 – Present</div>
-        <h3>Intern, Advanced Manufacturing — IIT (BHU), Varanasi</h3>
-        <p>Working on robotic Wire Arc Additive Manufacturing (WAAM) using the Cold Metal Transfer (CMT) process, applying data-driven methods to analyze deposition behavior and process parameters on an active robotic AM setup.</p>
-      </div>
-      <div class="tl-item">
-        <div class="when">May – Jun 2026</div>
-        <h3>Intern — Bharat Heavy Electricals Limited (BHEL), Varanasi</h3>
-        <p>Reviewed production workflow and quality-control data across industrial power-equipment manufacturing operations, applying engineering fundamentals to maintenance procedures.</p>
-      </div>
-      <div class="tl-item">
-        <div class="when">2023 – 2027</div>
-        <h3>B.Tech, Mechanical Engineering — MMMUT, Gorakhpur</h3>
-        <p>CGPA 7.38. Coursework: Data Analysis, Fluid Mechanics, Thermodynamics, Manufacturing Processes. Certifications: Data Analysis with AI (Internshala); Data Analysis — MOOD Indigo, IIT Bombay / Triple One Solutions.</p>
-      </div>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <span class="section-number">04 / SKILLS</span>
+
+            <h2>Tools I work with.</h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">PY</div>
+
+                <h3>Python</h3>
+
+                <p>
+                    Core language for ML,
+                    automation, backend and analytics.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">ML</div>
+
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Scikit-learn, feature engineering,
+                    classification and prediction.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">AI</div>
+
+                <h3>Generative AI</h3>
+
+                <p>
+                    LLM applications, AI agents
+                    and intelligent systems.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">API</div>
+
+                <h3>Backend</h3>
+
+                <p>
+                    FastAPI, REST APIs,
+                    databases and integrations.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">SQL</div>
+
+                <h3>Data & SQL</h3>
+
+                <p>
+                    Data analysis, querying,
+                    segmentation and reporting.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">☁</div>
+
+                <h3>Cloud & Tools</h3>
+
+                <p>
+                    Git, GitHub, AWS fundamentals
+                    and deployment workflows.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
+
 </section>
 
-<section id="contact">
-  <div class="wrap">
-    <div class="drawing-label"><span class="tick"></span><span class="txt">05 / Contact</span><span class="rule"></span></div>
-    <h2 class="section-title">Let's build something.</h2>
-    <p class="section-sub">Open to Data Science / ML Engineer roles and collaboration on applied-ML projects.</p>
-    <div class="contact-block">
-      <div class="contact-card">
-        <span class="k">Email</span>
-        <a href="mailto:srivastavpiyush986@gmail.com">srivastavpiyush986@gmail.com</a>
-      </div>
-      <div class="contact-card">
-        <span class="k">LinkedIn</span>
-        <a href="https://www.linkedin.com/in/piyush-kumar-srivastava-75446a38b" target="_blank" rel="noopener">/piyush-kumar-srivastava</a>
-      </div>
-      <div class="contact-card">
-        <span class="k">GitHub</span>
-        <a href="https://github.com/Piyushsrivastava914" target="_blank" rel="noopener">/Piyushsrivastava914</a>
-      </div>
-      <div class="contact-card">
-        <span class="k">Resume</span>
-        <a href="resume.pdf" download>Download PDF ↓</a>
-      </div>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-card reveal">
+
+            <span class="section-number">
+                05 / CONTACT
+            </span>
+
+            <h2>
+                Let's build something
+                <span class="gradient-text">
+                    intelligent.
+                </span>
+            </h2>
+
+            <p>
+                Whether you're hiring, building a product,
+                or exploring an AI idea — I'm always interested
+                in solving challenging problems.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="mailto:piyushsrivastava914@gmail.com"
+                    class="button primary-button">
+                    Email Me →
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/piyush-kumar-srivastava-75446a38b"
+                    target="_blank"
+                    class="button secondary-button">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
+
 </section>
+
+
+<!-- FOOTER -->
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
-    <span>© 2026 Piyush Kumar Srivastava · Built with HTML, CSS &amp; JS</span>
-    <span><a href="#home">Back to top ↑</a></span>
-  </div>
+
+    <div class="footer-container">
+
+        <span>
+            © 2026 Piyush Kumar Srivastava
+        </span>
+
+        <div class="footer-socials">
+
+            <a
+                href="https://github.com/Piyushsrivastava914"
+                target="_blank">
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/piyush-kumar-srivastava-75446a38b"
+                target="_blank">
+                LinkedIn
+            </a>
+
+            <a
+                href="mailto:piyushsrivastava914@gmail.com">
+                Email
+            </a>
+
+        </div>
+
+    </div>
+
 </footer>
 
-<script>
-  // scroll reveal
-  const targets = document.querySelectorAll('section .wrap > *');
-  targets.forEach(el => el.classList.add('reveal'));
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  }, {threshold:0.12});
-  targets.forEach(el=>io.observe(el));
-</script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
